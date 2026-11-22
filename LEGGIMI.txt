@@ -1,0 +1,78 @@
+PANNELLO TVC - web app per PC Windows, Android e iPhone
+=======================================================
+
+Cosa c'e' nella cartella
+- index.html              l'app (Pannello, Razzo 3D, Dimensionamento, Simulazione)
+- manifest.webmanifest    nome, icona e colori dell'app installata
+- sw.js                   la fa funzionare anche senza internet
+- icone/                  icone per Windows, Android e iPhone
+
+Cosa funziona dove
+- PC Windows con Chrome o Edge: tutto, compreso il collegamento USB all'ESP32.
+- Telefoni (Android e iPhone): Dimensionamento e Simulazione. Il collegamento all'ESP32
+  non e' disponibile e le schede Pannello e Razzo 3D sono disattivate.
+
+
+1) METTERE L'APP ONLINE (una volta sola, gratis, con GitHub Pages)
+------------------------------------------------------------------
+Per installarla su un telefono l'app deve stare su un indirizzo https.
+1. Crea un account gratuito su github.com (se non ce l'hai).
+2. In alto a destra: "+" -> "New repository".
+   Nome: pannello-tvc   Visibilita': Public   -> "Create repository".
+3. Nella pagina del repository: "uploading an existing file".
+   Trascina TUTTO il contenuto di questa cartella (anche la cartella icone),
+   poi in basso "Commit changes".
+4. Vai in Settings -> Pages.
+   Source: "Deploy from a branch", Branch: "main" e "/ (root)" -> Save.
+5. Dopo 1-2 minuti l'app e' online su:
+   https://TUO-NOME-UTENTE.github.io/pannello-tvc/
+Nota: con il repository pubblico chiunque abbia l'indirizzo puo' aprire la pagina
+(non contiene dati personali, solo l'app).
+
+
+2) INSTALLARLA
+--------------
+Windows (Chrome o Edge)
+  Apri l'indirizzo, poi premi "Installa app" in alto nella pagina oppure
+  l'icona di installazione nella barra degli indirizzi.
+  L'app compare nel menu Start e si apre in una finestra sua.
+  Il collegamento USB all'ESP32 funziona anche nell'app installata.
+
+Android (Chrome)
+  Apri l'indirizzo -> menu con i tre puntini -> "Installa app"
+  (o "Aggiungi a schermata Home").
+
+iPhone (Safari)
+  Apri l'indirizzo con Safari -> pulsante Condividi (quadrato con freccia)
+  -> "Aggiungi alla schermata Home" -> Aggiungi.
+
+Dopo la prima apertura con internet l'app funziona anche offline
+(il Razzo 3D ha bisogno di internet la prima volta per scaricare la grafica).
+
+
+3) AGGIORNARLA
+--------------
+Quando cambi index.html: caricalo di nuovo su GitHub (stesso nome) e in sw.js
+aumenta il numero di VERSIONE (es. 'tvc-v1' -> 'tvc-v2'), caricando anche sw.js.
+Le app installate prendono la versione nuova alla seconda apertura.
+
+
+Senza pubblicarla
+-----------------
+Sul PC puoi anche aprire index.html con doppio clic come prima: funziona tutto,
+ma non si installa come app e non va offline.
+
+
+Motori importati (.eng)
+-----------------------
+Su thrustcurve.org apri la pagina del motore -> "Simulator Files" -> scarica il
+file in formato RASP (.eng). Nel Dimensionamento premi "Importa un motore (.eng)":
+la simulazione usa la curva di spinta vera. I motori importati restano salvati
+nel browser (o nell'app) dove li hai importati: su un altro dispositivo vanno
+importati di nuovo.
+
+Materiali e pesi
+----------------
+Nel Dimensionamento, sotto il disegno del razzo, scegli il materiale di ogni pezzo:
+la pagina calcola massa e baricentro a vuoto e prepara le liste "da stampare",
+"da comprare" e "da costruire". Le scelte e le pesate restano salvate nel browser.
